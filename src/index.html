@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Code pour le TP3 de INF8808.">
+  <title>INF8808 | Projet final</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/typography.css">
+  <link rel="stylesheet" href="assets/tooltip.css">
+</head>
+
+<body>
+  <div class="container-header">
+    <header class="pattern">
+      <h1>
+        Visualisation des données de l'immobilier locatif à Montréal
+      </h1>
+      <h5 style="padding-left: 60px; margin-top: 0px;">
+        par : Ismail Bakkouri, Milen Bozhilov et Souleiman Ayoub
+      </h5>
+      <h2 style="margin-bottom: 5px;">
+        Dans le cadre du projet final du cours de data visualization, nous vous proposons une visualisation de données relatives
+        à plus de 3500 annonces de logement à louer dans la ville de Montréal et ses environs.
+      </br>
+      </br>
+        Bon visionnement !
+      </h2>
+    </header>
+  </div>
+  
+  <main style="width: 80%; margin: 50px auto;">
+    <!-- First Viz -->
+    <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">Influence de l'arrondissement sur les différentes variables d'une offre de location</h2>
+      <p>Dans cette première visualisation, nous avons triés les annonces a l'aide de leurs codes postaux, puis, en fonction du code postal, nous avons assigné un arrondissement à chaque annonce.
+        De cette facon, nous avons chercher à representer, le nombre de logement, et la taille, et le prix moyens des logements en location pour chaque arrondissement afin de pouvoir comparer ces
+        valeurs et determiner quels facteur sont le plus influés par le quartier d'un bien en location
+      </p>
+      <div class="graph" id = "map">
+        <svg class="main-svg" style = "display: block; margin:auto;"></svg>
+      </div>
+    </div>
+
+    <!-- Second Viz -->
+    <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">Distribution des types, et du nombre de pièces des habitations</h2>
+      <p>La seconde visualisation que nous proposons est un diagramme de sankey, qui affiche la distribution des types de propriétés en location, ainsi que le nombre de pièces que les logements comportent. </p>
+        <div id="chart"></div>
+        <p>Nous remarquons que la distribution n'est pas uniforme, en effet, la très grande majorité des annonces concernent des apprtement, et des condos.
+           Il en est de mêmePour le nombre de pièces, en règle générale, nous remarquons que moins il y'a de pièces, plus il y'a de logements à louer.
+          Nous pensons que cette distribution risque de biaiser certaines visualisations que l'on va faire, nous ajouterons des vues pour valider ou réfuter ce biais.
+        </p>
+    </div>
+
+    <!-- Third Viz -->
+     <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">L'aire as-t-il une influence sur le cout de la location?</h2>
+      <p>Nous avons chercher a determiner si il y'a des corrélation entres certaines variables et le prix des logements à louer. Nous nous sommes premièrement interésser à l'air (en pieds carrés) des habitations</p>
+      <div class="graph-prix-area" id="bar-chart-prix-area">
+        <svg class="prix-area-svg" style = "display: block; margin:auto;"></svg>
+      </div>
+      <p>Bien que cette corrélation semble intuitivement forte, nous remarquons sur le graphique qu'il y'a une tendence, mais qu'elle n'est pas si forte que ca. Ce qui implique que d'autres facteur sont plus
+         important que l'air pour expliquer la variance du prix. Par exemple, pour une aire habitable de 1000 pieds carrés, nous pouvons observer que le prix peut aller de moin de 1000$ jusqu'a plus de 3000$.
+     </p>
+    </div>
+
+    <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">Ce qui impacte le plus le coût d’une habitation</h2>
+      <p>Ensuite, nous nous sommes intéresser à l'influence du nombre de chambre sur les prix.</p>
+      <div class="graph-prix-nbCham" id="bar-chart-prix-nbCham">
+        <svg class="prix-nbCham-svg" style = "display: block; margin:auto;"></svg>
+      </div>
+      <p>Le nombre de chambre semble avoir un impact sur le nombre le prix maximum d'une location. En effet, il semble que si le logement a moin de 4 chambres,
+         le prix les moin chers sont tous environ égaux. PAr contre, les logement les plus cher eux sont grandement influencés par le nombre de chambre ce qui semble
+         plutot logique.
+     </p>
+    </div>
+    <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">Écarts de prix entre les types de proptiétés</h2>
+      <p>Finalement, nous avons chercher a connaitre l'écart de prix entre les différents types de propriétés à louer.</p>
+      <div class="graph-prix-type" id="bar-chart-prix-type">
+        <svg class="prix-type-svg" style = "display: block; margin:auto;"></svg>
+      </div>
+      <p>Nous remarquons que l'influence du type de propriété semble être le facteur qui influence le plus le coup d'un logement en comparaison aux autres critères vus prcédemment.
+        Les résultats les plus precis sont toutefois pour les types appartement, condos et duplex-triplex car nous avons de grand échantillons de données, et nous constatons un écart significatif entre les types condos et appartement. (environ 50%)
+     </p>
+    </div>
+
+    <!-- Fourth Viz -->
+    <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">Fluctuation du coût du logement (vue générale)</h2>
+      <p>Nous allons maintenant tenter de determiner si le prix des logements a réellement augmenté au cours des années 2020-2021, Pour réaliser cet objectif,
+        nous allons d'abord réaliser une vue générale qui comprend le prix moyen, ainsi que le nombre d'habitation pour un mois donné et ce pour tous les types de logements.
+      </p>
+      <div class='graph-bubble'>
+        <svg id='bubble-chart' style = "display: block; margin:auto;">
+        </svg>
+      </div>
+      <p>Étrangement, le prix des logement à louer ne semble pas avoir beaucoup monté aucours des deux dernières années, tout au plus quelques pourcentage. Nous pensions qu'au vu de la crise du logement provoquée par la pandémie,
+         il y'aurait des écarts très significatifs entre les années 2020 et 2021. Ce que nous avons relevé avec la visualisation nous a semblé beaucoup moins prononcé que ce que nous avions cru. 
+     </p>
+    </div> 
+
+    <!-- Fifth Viz -->
+    <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">Fluctuation du coût du logement (par type d'habitation)</h2>
+      <p>En deuxième lieu, nous avons chercher a visualiser les chaugement de prix durant les années 2020-2021, pour chaque type d'habiotation.
+         Malheureseuemt nous n'avions pas suffisemment de données pour certains types de logement. Nous avons deonc seulement afficher ceux dont il y'avais suffisement d'informations</p>
+      <div class="graph-line">
+        <svg id="line-chart" style = "display: block; margin:auto;"></svg>
+      </div>
+      <div style = "margin-left: 100px; margin-top: -60px;">
+        <input type="checkBox" name="checkBoxAppart" checked>
+        <label for="CheckBoxAppartLabel">Appartements</label>
+        <input type="checkBox" name="checkBoxCondos" checked>
+        <label for="CheckBoxCondoLabel">Condos</label>
+        <input type="checkbox" name="checkBoxDuplex" checked>
+        <label for="CheckBoxDuplexLabel">Duplex-Triplex</label>
+        <input type="checkbox" name="checkBoxHouse" unchecked>
+        <label for="CheckBoxHouseLabel">Maison</label>
+      </div>
+      <p>De même que le graphique précédent, même pour les différent types de logement, nous ne remarquons pas de tendence haussière des prix.
+     </p>
+    </div>
+
+    <!-- Sixth Viz -->
+     <div class="viz-container" style="height: auto;">
+      <h2 style="font-weight: bold;">Quels sont les termes les plus utilisés dans les annonces?</h2>
+      <p>Finalement, nous avons trouvé interessent d'afficher les mots les  plus employés dans les description des annonces</p>
+      <div class="graph-title" id="bar-chart-title">
+        <svg class="title-svg" style = "display: block; margin:auto;"></svg>
+      </div>
+      <p>Finalement, le dernier graphique indique que les gens en tendence a mettre d'avantage de mots valorisant dans leures annonces.
+         Par exemple, malgrès que la majorité des location sont des appartement, le terme n'apparait pas dans les mot les plus fréquents.
+          Mais nous retrouvons par contre le mot 'condo', qui donne une connotation plus luxueuse à l'annonce.
+     </p>
+    </div>
+  </main>
+
+  <script src="https://d3js.org/d3.v5.js"></script>
+
+  <script type="module" src="index.js"></script>
+  <script type="module" src="scripts/distDimensions/sankey.js"></script>
+  <script type="module" src="indexDistDimen.js"></script> 
+  <script type="module" src="indexGeoMap.js"></script>
+  <script type="module" src="indexPrixGrandeur.js"></script>
+  <script type="module" src="indexPrixType.js"></script>
+  <script type="module" src="indexPrixNbCham.js"></script>
+  <script type="module" src="indexTitle.js"></script>
+</body>
+
+</html>
