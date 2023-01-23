@@ -36,7 +36,6 @@ export function appendGraphLabels (g) {
   let xBBox = d3.select(".x.axis-title")._groups[0][0].getBBox()
   let yBBox = d3.select(".x.axis-title")._groups[0][0].getBBox()
 
-  console.log(yBBox)
   g.append('text')
     .text('Words')
     .attr('class', 'y axis-text ab')

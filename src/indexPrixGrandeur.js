@@ -24,7 +24,6 @@ import * as legend from './scripts/explCoutArea/legend.js'
 
   d3.csv("./donnees_habitations.csv", d3.autoType).then(function (data) {
     const extracted_data = preproc.endResult(data)
-    //console.log("Xtracted:", extracted_data)
     setSizing();
     build();
 

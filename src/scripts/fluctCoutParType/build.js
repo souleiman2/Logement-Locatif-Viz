@@ -12,7 +12,6 @@ import d3Tip from 'd3-tip'
 export function build(data, d3) {
 
     var data = preproc.getAveragePricePerHouseTypePerMonth(data)
-    console.log("Data2", data)
 
     const margin = {
         top: 75,

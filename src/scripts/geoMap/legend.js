@@ -60,7 +60,6 @@ export function drawLegend (radiusScale,colorScale, g) {
     //bar axes
     const yScale = d3.scaleLinear()
     let domain = colorScale.domain()
-    console.log(domain)
     yScale.domain([Math.min(...domain), Math.max(...domain)]).range([BAR_HEIGHT, 0]);
 
     g.append("g")
