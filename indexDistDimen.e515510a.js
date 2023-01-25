@@ -301,7 +301,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
   // Set the sankey diagram properties
   var sankey = d3.sankey().nodeWidth(36).nodePadding(40).size([width, height]);
   var path = sankey.link();
-  d3.csv("./donnees_habitations.csv", d3.autoType).then(function (data) {
+  d3.csv("Logement-Locatif-Viz/donnees_habitations.csv", d3.autoType).then(function (data) {
     var graph = preproc.endResult(data);
     sankey.nodes(graph.nodes).links(graph.links).layout(32);
 

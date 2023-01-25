@@ -423,7 +423,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
   var g = helper.generateG(margin);
   helper.appendAxes(g);
   helper.appendGraphLabels(g);
-  d3.csv("./donnees_habitations.csv", d3.autoType).then(function (data) {
+  d3.csv("Logement-Locatif-Viz/donnees_habitations.csv", d3.autoType).then(function (data) {
     var extracted_data = preproc.endResult(data);
     setSizing();
     build();

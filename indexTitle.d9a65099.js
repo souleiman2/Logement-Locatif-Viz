@@ -2423,7 +2423,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
     return tooltip.getContents(d);
   });
   d3.select('.title-svg').call(tip);
-  d3.csv("./donnees_habitations.csv", d3.autoType).then(function (data) {
+  d3.csv("Logement-Locatif-Viz/donnees_habitations.csv", d3.autoType).then(function (data) {
     var words_data = preproc.endResult(data, nbWords);
     setSizing();
     build();

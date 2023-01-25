@@ -2550,9 +2550,9 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
       return tooltip.getContents(d);
     });
     d3.select('.title-svg').call(tip);
-    d3.json('./montreal.json').then(function (data1) {
+    d3.json('Logement-Locatif-Viz/montreal.json').then(function (data1) {
       viz.mapBackground(data1, path, viz.showMapLabel);
-      d3.csv('./donnees_habitations.csv').then(function (data) {
+      d3.csv('Logement-Locatif-Viz/donnees_habitations.csv').then(function (data) {
         var processed_data = preproc.MapNeighborhood(data);
         viz.setRadiusScale(radiusScale, processed_data);
         viz.setColorScale(colorScale, processed_data, ["#07F907", "#0A2BFF"]);
