@@ -1,5 +1,5 @@
 {
-  "name": "tp3",
+  "name": "dataviz",
   "version": "1.0.0",
   "description": "Visualisation des données de l'immobilier locatif à Montréal",
   "main": "src/index.js",
