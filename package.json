@@ -1,7 +1,7 @@
 {
   "name": "tp3",
   "version": "1.0.0",
-  "description": "TP pour le cours INF8808.",
+  "description": "Visualisation des données de l'immobilier locatif à Montréal",
   "main": "src/index.js",
   "scripts": {
     "build": "parcel build ./src/index.html",
